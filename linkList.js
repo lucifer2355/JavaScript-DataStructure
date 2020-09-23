@@ -17,6 +17,15 @@ class LinkedList {
     }
   }
 
+  prepend(value) {
+    const newNode = { value: value, next: this.head };
+
+    this.head = newNode;
+    if (!this.tail) {
+      this.tail = newNode;
+    }
+  }
+
   toArray() {
     const elements = [];
     let curNode = this.head;
@@ -36,5 +45,6 @@ linkedList1.append("Hello there");
 linkedList1.append("Dhulo");
 linkedList1.append(true);
 linkedList1.append(18.57);
+linkedList1.prepend("First value!");
 
 console.log(linkedList1.toArray());
