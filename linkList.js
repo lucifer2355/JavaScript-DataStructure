@@ -1,17 +1,16 @@
 class LinkedList {
   constructor() {
-    this.head = null; //! First elemnt of the list
-    this.tail = null; //! Last element of the list
+    this.head = null; // First element of the list
+    this.tail = null; // Last element of the list
   }
 
   append(value) {
     const newNode = { value: value, next: null };
 
     if (this.tail) {
-      this.tail.newNode = newNode;
+      this.tail.next = newNode;
     }
     this.tail = newNode;
-
     if (!this.head) {
       this.head = newNode;
     }
@@ -38,7 +37,7 @@ class LinkedList {
     let curNode = this.head;
 
     while (curNode.next) {
-      if (curNode.next === value) {
+      if (curNode.next.value === value) {
         curNode.next = curNode.next.next;
       } else {
         curNode = curNode.next;
@@ -52,8 +51,8 @@ class LinkedList {
 
   toArray() {
     const elements = [];
-    let curNode = this.head;
 
+    let curNode = this.head;
     while (curNode) {
       elements.push(curNode);
       curNode = curNode.next;
@@ -65,17 +64,18 @@ class LinkedList {
 
 const linkedList1 = new LinkedList();
 linkedList1.append(1);
-linkedList1.append("Hello there");
-linkedList1.append("Dhulo");
-linkedList1.append("Dhulo");
+linkedList1.append("hello there");
+linkedList1.append("Max");
 linkedList1.append("Max");
 linkedList1.append(true);
-linkedList1.append(18.57);
+linkedList1.append(18.51);
+linkedList1.prepend("First value!");
 linkedList1.prepend("First value!");
 
 console.log(linkedList1.toArray());
 
-linkedList1.delete("Duulo");
-linkedList1.delete(true);
+linkedList1.delete("Max");
+linkedList1.delete("First value!");
+linkedList1.delete(18.51);
 
 console.log(linkedList1.toArray());
